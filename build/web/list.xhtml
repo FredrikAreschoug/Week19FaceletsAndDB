@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+         xmlns:h="http://java.sun.com/jsf/html"
+         xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+       <title>Hmmpf</title>
+</h:head>
+	<h:body>
+		
+		<h:dataTable value="#{bookController.bookList}" var="b" border="1">
+		<h:column>
+			<f:facet name="header">Title</f:facet>
+			#{b.title}
+		</h:column>
+		<h:column>
+			<f:facet name="header">Author</f:facet>
+			#{b.author}
+		</h:column>
+		<h:column>
+			<f:facet name="header">Price</f:facet>
+			#{b.price}
+		</h:column>
+		</h:dataTable>
+		<h:form>
+			<h:panelGrid columns="2">
+				<h:outputLabel for="title" value="Title"/>
+				<h:inputText id="title" value="#{book.title}"/>
+				<h:outputLabel for="author" value="Author"/>
+				<h:inputText id="author" value="#{book.author}"/>
+				<h:outputLabel for="price" value="Price"/>
+				<h:inputText id="price" value="#{book.price}"/>
+				<h:commandButton id="submitButton" value="Submit" action="#{bookController.saveBook}"/>
+			
+			</h:panelGrid>
+		</h:form>	
+	</h:body>
+</html>
